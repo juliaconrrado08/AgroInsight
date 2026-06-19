@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroInsight | Gestão e Cenários</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-seedling"></i> <span>Agro<strong>Insight</strong></span>
+        </div>
+        <nav class="nav-links">
+            <a href="#dashboard"><i class="fa-solid fa-chart-line"></i> Painel</a>
+            <a href="#artigos"><i class="fa-solid fa-newspaper"></i> Artigos</a>
+            <a href="#videos"><i class="fa-solid fa-video"></i> Conteúdo</a>
+            <a href="#marketplace"><i class="fa-solid fa-store"></i> Marketplace</a>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="btn-icon"><i class="fa-solid fa-moon"></i></button>
+            <button onclick="openLoginModal()" class="btn-primary">Entrar</button>
+        </div>
+    </header>
+
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">SOJA (SJC1): <span class="up">+1.45%</span></div>
+            <div class="ticker-item">MILHO (CCM1): <span class="down">-0.82%</span></div>
+            <div class="ticker-item">BOI GORDO (BGI1): <span class="up">+0.32%</span></div>
+            <div class="ticker-item">URÉIA IMPORTADA (FOB): <span class="up">+2.10%</span></div>
+            <div class="ticker-item">DÓLAR AGRO: <span class="up">+0.45%</span></div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>Crise de Insumos & Recuperação Judicial no Agro</h1>
+        <p>Análise estratégica sobre o endividamento rural, a dependência do mercado externo e as alternativas para o produtor paranaense.</p>
+    </section>
+
+    <main class="container" id="dashboard">
+        <h2 class="section-title">Indicadores Críticos do Setor</h2>
+        <div class="grid-dashboard">
+            <div class="card chart-card">
+                <h3>Evolução dos Pedidos de Recuperação Judicial (PRJ)</h3>
+                <canvas id="chartRJ"></canvas>
+            </div>
+            <div class="card chart-card">
+                <h3>Dependência de Fertilizantes Importados (NPK)</h3>
+                <canvas id="chartInsumos"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <section class="container" id="artigos">
+        <h2 class="section-title">Artigos & Pareceres Técnicos</h2>
+        <div class="grid-cards">
+            <article class="card">
+                <span class="badge badge-alert">Macroeconomia</span>
+                <h3>O Efeito Dominó do Endividamento no PR</h3>
+                <p>Como a combinação de quebra de safra regional e juros altos elevou em patamares históricos os pedidos de RJ no Paraná.</p>
+                <a href="#" class="read-more">Ler Artigo <i class="fa-solid fa-arrow-right"></i></a>
+            </article>
+            <article class="card">
+                <span class="badge badge-warn">Geopolítica</span>
+                <h3>A Armadilha dos Insumos Importados</h3>
+                <p>Análise de vulnerabilidade: a exposição cambial do produtor de grãos frente aos gargalos de importação de defensivos.</p>
+                <a href="#" class="read-more">Ler Artigo <i class="fa-solid fa-arrow-right"></i></a>
+            </article>
+        </div>
+    </section>
+
+    <section class="container" id="videos">
+        <h2 class="section-title">Vídeos Instrutivos & Mentorias</h2>
+        <div class="grid-cards">
+            <div class="card video-card">
+                <div class="video-placeholder">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Instrutivo" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                    <h3>Como Reestruturar Dívidas do Custeio Rural</h3>
+                    <p>Especialistas jurídicos explicam o passo a passo antes de optar pela Recuperação Judicial.</p>
+                </div>
+            </div>
+            <div class="card video-card">
+                <div class="video-placeholder">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo Instrutivo" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                    <h3>Estratégias de Hedge e Troca (Barter)</h3>
+                    <p>Aprenda a mitigar o risco da variação de preços dos insumos importados utilizando contratos futuros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="marketplace">
+        <h2 class="section-title">Marketplace de Insumos e Crédito</h2>
+        <div class="grid-cards">
+            <div class="card product-card">
+                <div class="product-img"><i class="fa-solid fa-boxes-stacked"></i></div>
+                <h3>Fertilizante NPK (Nacionalizado)</h3>
+                <p>Disponibilidade imediata no porto de Paranaguá. Lotes fracionados.</p>
+                <div class="price">R$ 3.200 / Ton</div>
+                <button class="btn-secondary">Cotar Agora</button>
+            </div>
+            <div class="card product-card">
+                <div class="product-img"><i class="fa-solid fa-handshake"></i></div>
+                <h3>Crédito Privado Fiagro</h3>
+                <p>Alongamento de perfil de dívida com taxas competitivas pré-fixadas.</p>
+                <div class="price">Taxas sob consulta</div>
+                <button class="btn-secondary">Simular Crédito</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeLoginModal()">&times;</span>
+            <h2>Acesse a Plataforma</h2>
+            <p>Conecte-se para acessar relatórios exclusivos da banca do Paraná.</p>
+            <button class="btn-google" onclick="simulateGoogleLogin()">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google">
+                Entrar com o Google
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AgroInsight — Desenvolvido para Apresentação em Banca Profissional.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

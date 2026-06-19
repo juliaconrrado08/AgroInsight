@@ -1,0 +1,231 @@
+/* Variáveis de Cores (Design de Startup) */
+:root {
+    --bg-primary: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --primary: #10b981; /* Verde Agro Moderno */
+    --primary-hover: #059669;
+    --border-color: #e2e8f0;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --ticker-bg: #1e293b;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --ticker-bg: #020617;
+}
+
+/* Resets Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Botões */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primary:hover { background-color: var(--primary-hover); }
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* Ticker da Bolsa */
+.ticker-wrap {
+    background: var(--ticker-bg);
+    color: #fff;
+    overflow: hidden;
+    padding: 10px 0;
+}
+.ticker {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 25s linear infinite;
+}
+.ticker-item {
+    padding: 0 40px;
+    font-weight: bold;
+}
+.up { color: #10b981; }
+.down { color: #ef4444; }
+
+@keyframes marquee {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, rgba(16,185,129,0.1) 0%, rgba(5,150,105,0.05) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+.hero h1 { font-size: 2.5rem; margin-bottom: 15px; }
+.hero p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
+
+/* Grid & Cards (Padrão Startup) */
+.section-title { margin-bottom: 25px; font-size: 1.8rem; border-left: 5px solid var(--primary); padding-left: 10px; }
+.grid-dashboard, .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.chart-card { min-height: 350px; }
+
+/* Emblemas/Badges */
+.badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
+.badge-alert { background: rgba(239,68,68,0.1); color: var(--danger); }
+.badge-warn { background: rgba(245,158,11,0.1); color: var(--warning); }
+
+/* Vídeos e Imagens */
+.video-placeholder iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Marketplace */
+.product-img {
+    height: 120px;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--primary);
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.price { font-size: 1.4rem; font-weight: bold; margin: 15px 0; color: var(--primary); }
+
+/* Modais (Login) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; }
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background: white;
+    color: #222;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-color); color: var(--text-muted); }
